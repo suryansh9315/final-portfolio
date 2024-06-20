@@ -8,35 +8,49 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto reiciendis eveniet pariatur aliquam architecto. Sequi, sint esse.",
+      "Our web development services go beyond just creating websites, we specialize in crafting digital experiences that resonate with your audience. From custom e-commerce platforms to dynamic content management systems, we leverage cutting-edge technologies to build scalable and responsive web solutions.",
     href: "",
   },
   {
     num: "02",
-    title: "UI/UI Designer",
+    title: "Android Development",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto reiciendis eveniet pariatur aliquam architecto. Sequi, sint esse.",
+      "Our Android development team excels in building robust and user-friendly mobile applications that elevate your brand's presence on the Google Play Store. Whether you need a consumer-facing app, enterprise solution, or a game-changing innovation, we are here for you.",
     href: "",
   },
   {
     num: "03",
-    title: "Android Development",
+    title: "UI/UI Designer",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto reiciendis eveniet pariatur aliquam architecto. Sequi, sint esse.",
+      " At the heart of every successful digital product lies exceptional UI/UX design. Our team is dedicated to creating interfaces that not only look stunning but also prioritize usability and intuitive navigation.",
     href: "",
   },
   {
     num: "04",
+    title: "Smart Contract Development",
+    description:
+      "Whether you're launching a decentralized application (dApp) or integrating smart contracts into your business processes, our experts ensure secure, transparent, and autonomous transactions on platforms like Ethereum.",
+    href: "",
+  },
+  {
+    num: "05",
     title: "SEO",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto reiciendis eveniet pariatur aliquam architecto. Sequi, sint esse.",
+      "Drive organic traffic and enhance your online visibility with our SEO services. We employ proven strategies and ethical practices to optimize your website for search engines, improving its ranking and attracting qualified leads.",
+    href: "",
+  },
+  {
+    num: "06",
+    title: "Penetration Testing",
+    description:
+      "Protect your digital assets and maintain trust with our comprehensive penetration testing services. Our certified ethical hackers simulate real-world cyberattacks to identify vulnerabilities in your systems, networks, and applications.",
     href: "",
   },
 ];
 
 const Services = () => {
   return (
-    <div className="text-white min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
+    <div className="text-white min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 xl:pb-10">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

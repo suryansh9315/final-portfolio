@@ -6,8 +6,23 @@ import {
   FaReact,
   FaFigma,
   FaNodeJs,
+  FaPython,
+  FaJava,
+  FaEthereum,
+  FaGitAlt,
+  FaAws,
 } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiMongodb,
+  SiRedux,
+  SiPostgresql,
+  SiSolidity,
+  SiSolana,
+  SiFirebase,
+} from "react-icons/si";
+import { TbBrandThreejs } from "react-icons/tb";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -33,19 +48,11 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "12+ Years",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "luke.01",
+      fieldValue: "2+ Years",
     },
     {
       fieldName: "Nationality",
       fieldValue: "Indian",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "suryansh.sharma9315@gmail.com",
     },
     {
       fieldName: "Freelance",
@@ -55,6 +62,10 @@ const about = {
       fieldName: "Languages",
       fieldValue: "English, Hindi",
     },
+    {
+      fieldName: "Email",
+      fieldValue: "suryansh.sharma9315@gmail.com",
+    },
   ],
 };
 
@@ -62,10 +73,10 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit eius ex voluptatum.",
+    "With a track record of delivering innovative solutions, i have accumulated extensive experience in software development.",
   items: [
     {
-      company: "Startup",
+      company: "SSTV Enterprises",
       position: "Software Developer",
       duration: "May 2023 - Present",
     },
@@ -85,8 +96,7 @@ const experience = {
 const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit eius ex voluptatum.",
+  description: "",
   items: [
     {
       institution: "Delhi Technological University",
@@ -112,6 +122,14 @@ const skills = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit eius ex voluptatum.",
   items: [
     {
+      icon: <FaPython />,
+      name: "python",
+    },
+    {
+      icon: <FaJava />,
+      name: "java",
+    },
+    {
       icon: <FaHtml5 />,
       name: "html 5",
     },
@@ -132,16 +150,56 @@ const skills = {
       name: "next.js",
     },
     {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
+      icon: <SiRedux />,
+      name: "redux",
+    },
+    {
+      icon: <SiMongodb />,
+      name: "mongodb",
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "postgresql",
+    },
+    {
+      icon: <TbBrandThreejs />,
+      name: "three.js",
     },
     {
       icon: <FaNodeJs />,
       name: "node.js",
     },
     {
+      icon: <SiTailwindcss />,
+      name: "tailwind.css",
+    },
+    {
+      icon: <SiSolidity />,
+      name: "solidity",
+    },
+    {
+      icon: <FaEthereum />,
+      name: "ethereum",
+    },
+    {
+      icon: <SiSolana />,
+      name: "solana",
+    },
+    {
       icon: <FaFigma />,
       name: "figma",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "git",
+    },
+    {
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
+      icon: <SiFirebase />,
+      name: "firebase",
     },
   ],
 };
@@ -171,9 +229,9 @@ const Resume = () => {
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
-                </p>
+                </p> */}
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {experience.items.map((item, index) => (
@@ -198,9 +256,9 @@ const Resume = () => {
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {education.description}
-                </p>
+                </p> */}
                 <ScrollArea className="h-[400px]">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                     {education.items.map((item, index) => (
@@ -223,12 +281,12 @@ const Resume = () => {
               </div>
             </TabsContent>
             <TabsContent value="skills" className="w-full">
-              <div className="flex flex-col gap-[30px]">
+              <div className="flex flex-col gap-[30px] pb-10">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                     {skills.description}
-                  </p>
+                  </p> */}
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                   {skills.items.map((item, index) => (
