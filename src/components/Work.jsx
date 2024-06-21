@@ -34,6 +34,26 @@ const projects = [
   },
   {
     num: "02",
+    category: "fullstack",
+    title: "FleetOPS",
+    description:
+      "Developed a React Native driver management app, streamlining the onboarding process for new drivers.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React Native" },
+      { name: "node.js" },
+      { name: "mongoDB" },
+      { name: "Twilio" },
+      { name: "Razorpay Payment gateway" },
+    ],
+    image: "/assets/work/fleet.png",
+    live: "https://play.google.com/store/apps/details?id=com.onev.fleetops",
+    github: "https://github.com/suryansh9315/onev-payments-manager",
+  },
+  {
+    num: "03",
     category: "full stack",
     title: "3d Viewer",
     description:
@@ -53,7 +73,7 @@ const projects = [
     github: "https://github.com/suryansh9315/3d-viewer",
   },
   {
-    num: "03",
+    num: "04",
     category: "frontend",
     title: "Firebase Chat",
     description:
@@ -72,7 +92,7 @@ const projects = [
     github: "https://github.com/suryansh9315/firebase-chat",
   },
   {
-    num: "04",
+    num: "05",
     category: "AI/ML",
     title: "BRS",
     description:
@@ -96,7 +116,7 @@ const projects = [
     github: "https://github.com/suryansh9315/brs",
   },
   {
-    num: "05",
+    num: "06",
     category: "crypto",
     title: "Crowdfunding",
     description:
@@ -115,7 +135,7 @@ const projects = [
     github: "https://github.com/suryansh9315/crowd-funding",
   },
   {
-    num: "06",
+    num: "07",
     category: "frontend",
     title: "SS Store",
     description:
