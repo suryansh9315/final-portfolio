@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../firebase'
 
 const info = [
   {
@@ -33,6 +36,53 @@ const info = [
 ];
 
 const Contact = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("Web Development");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    console.log("Send Message...")
+    e.preventDefault();
+    const re = /\S+@\S+\.\S+/;
+    try {
+      if (!firstName) {
+        return toast.error("Please enter a valid Firstname");
+      }
+      if (!email) {
+        return toast.error("Please enter a valid Email");
+      }
+      if (!re.test(email)) {
+        return toast.error("Please enter a valid Email");
+      }
+      if (!phone) {
+        return toast.error("Please enter a valid Phone Number");
+      }
+      const obj = {
+        name: firstName + " " + lastName,
+        email,
+        phone,
+        service,
+        message
+      }
+      const docRef = await addDoc(collection(db, "messages"), obj);
+      console.log("Message Sent")
+      console.log(docRef.id)
+      setFirstName("")
+      setLastName("")
+      setEmail("")
+      setPhone("")
+      setService("Web Development")
+      setMessage("")
+      toast.success("Success")
+    } catch (e) {
+      console.log(e);
+      toast.error("Something went wrong")
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -52,29 +102,64 @@ const Contact = () => {
                 Pariatur aspernatur iure molestiae ratione repellat ab.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="firstname"
+                  placeholder="Firstname"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <Input
+                  type="lastname"
+                  placeholder="Lastname"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                  type="phone"
+                  placeholder="Phone number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </div>
-              <Select>
+              <Select value={service} onValueChange={(e) => setService(e)}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web Development</SelectItem>
-                    <SelectItem value="cst">App Development</SelectItem>
-                    <SelectItem value="mst">UI/UX Design</SelectItem>
+                    <SelectItem value="Web Development">
+                      Web Development
+                    </SelectItem>
+                    <SelectItem value="Android Development">
+                      Android Development
+                    </SelectItem>
+                    <SelectItem value="UI/UX Designer">
+                      UI/UX Designer
+                    </SelectItem>
+                    <SelectItem value="Smart Contract Development">
+                      Smart Contract Development
+                    </SelectItem>
+                    <SelectItem value="SEO">SEO</SelectItem>
+                    <SelectItem value="Penetraton testing">
+                      Penetraton testing
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
-              <Button size="md" className="max-w-40">
+              <Button size="md" className="max-w-40" onClick={handleSubmit}>
                 Send message
               </Button>
             </form>
@@ -96,6 +181,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </motion.div>
   );
 };

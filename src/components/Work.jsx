@@ -15,36 +15,123 @@ import WorkSliderHandles from "./WorkSliderHandles";
 const projects = [
   {
     num: "01",
-    category: "full stack",
-    title: "project 1",
+    category: "crypto",
+    title: "All Swap",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, praesentium beatae!",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+      "Developed a React application enabling users to seamlessly swap ETH for various tokens on the Ethereum mainnet and Goerli testnet.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "Uniswap" },
+      { name: "ethers.js" },
+      { name: "Framer Motion" },
+    ],
+    image: "/assets/work/allswap.png",
+    live: "https://all-swap-flax.vercel.app/",
+    github: "https://github.com/suryansh9315/eth-swap",
   },
   {
     num: "02",
-    category: "frontend",
-    title: "project 2",
+    category: "full stack",
+    title: "3d Viewer",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, praesentium beatae!",
-    stack: [{ name: "React" }, { name: "MaterialUI" }, { name: "Javascript" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+      "Developed a React application allowing users to customize T-shirt designs. Integrated Three.js to implement a 3D rendering environment, providing users with a realistic preview of their customized T-shirt.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "three.js" },
+      { name: "tailwindcss" },
+      { name: "node.js" },
+      { name: "openAI" },
+    ],
+    image: "/assets/work/3d.png",
+    live: "https://3d-viewer-three.vercel.app/",
+    github: "https://github.com/suryansh9315/3d-viewer",
   },
   {
     num: "03",
-    category: "android",
-    title: "project 3",
+    category: "frontend",
+    title: "Firebase Chat",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo, praesentium beatae!",
-    stack: [{ name: "Next.js" }, { name: "TailwindCSS" }, { name: "MongoDB" }],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+      "Developed a feature-rich chat application using Firebase, Redux, Material-UI, and Cloud Firestore.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "MaterialUI" },
+      { name: "Firebase" },
+      { name: "Redux" },
+    ],
+    image: "/assets/work/chat.png",
+    live: "https://chat-7e7a5.web.app/",
+    github: "https://github.com/suryansh9315/firebase-chat",
+  },
+  {
+    num: "04",
+    category: "AI/ML",
+    title: "BRS",
+    description:
+      "Developed an AI powered books recommendation system.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "TailwindCSS" },
+      { name: "Framer Motion" },
+      { name: "node.js" },
+      { name: "MongoDB" },
+      { name: "Python" },
+      { name: "FastAPI" },
+      { name: "Jupyter" },
+      { name: "Scikit Learn" },
+    ],
+    image: "/assets/work/brs.png",
+    live: "https://brs-seven.vercel.app/",
+    github: "https://github.com/suryansh9315/brs",
+  },
+  {
+    num: "05",
+    category: "crypto",
+    title: "Crowdfunding",
+    description:
+      "Developed a Crowdfunding website for blockchain startups making it easy for them to aquire funding in just few clicks.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "TailwindCSS" },
+      { name: "ethers.js" },
+      { name: "Thirdweb" },
+    ],
+    image: "/assets/work/crowd.png",
+    live: "https://crowd-funding-seven.vercel.app/",
+    github: "https://github.com/suryansh9315/crowd-funding",
+  },
+  {
+    num: "06",
+    category: "frontend",
+    title: "SS Store",
+    description:
+      "Developed a ecommerce website. Integrated sanity as content managament service and stripe as payment gateway.",
+    stack: [
+      { name: "Html 5" },
+      { name: "Css 3" },
+      { name: "Javascript" },
+      { name: "React" },
+      { name: "next.js" },
+      { name: "Sanity" },
+      { name: "Sripe" },
+    ],
+    image: "/assets/work/ss.png",
+    live: "https://ecom-sanity-stripe.vercel.app/",
+    github: "https://github.com/suryansh9315/ecom-sanity-stripe",
   },
 ];
 
@@ -72,10 +159,10 @@ const Work = () => {
                 {project.num}
               </div>
               <div className="font-bold text-[42px] leading-none text-white group-hover:text-blue-600 transition-all duration-500 capitalize">
-                {project.category} project
+                {project.title}
               </div>
               <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
+              <ul className="flex gap-4 flex-wrap">
                 {project.stack.map((item, index) => (
                   <li key={index} className="text-xl text-blue-600">
                     {item.name}
@@ -85,7 +172,7 @@ const Work = () => {
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
-                <Link hrefLang={project.live}>
+                <a target="_blank" href={project.live}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -96,8 +183,8 @@ const Work = () => {
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
-                <Link hrefLang={project.github}>
+                </a>
+                <a target="_blank" href={project.github}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -108,7 +195,7 @@ const Work = () => {
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -121,13 +208,13 @@ const Work = () => {
             >
               {projects.map((project, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                  <div className="h-[460px] relative group flex justify-center items-center bg-[#03061f]">
                     <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                     <div className="relative w-full h-full">
                       <img
                         src={project.image}
                         alt=""
-                        className="h-[460px] object-cover w-full"
+                        className="h-[460px] object-contain w-full"
                       />
                     </div>
                   </div>

@@ -17,15 +17,15 @@ const Photo = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
           }}
-          className="absolute w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten"
+          className="w-[298px] h-[298px] xl:w-[400px] xl:h-[400px] mix-blend-lighten flex items-center justify-center"
         >
           <img
-            src="/photo.png"
+            src="/p4.png"
             alt=""
-            className="object-contain w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]"
+            className="object-contain w-[298px] h-[298px] xl:w-[400px] xl:h-[400px]"
           />
         </motion.div>
-        <motion.svg
+        {/* <motion.svg
           className="w-[300px] h-[300px] xl:w-[506px] xl:h-[506px]"
           fill="transparent"
           viewBox="0 0 506 506"
@@ -50,7 +50,7 @@ const Photo = () => {
               repeatType: "reverse",
             }}
           />
-        </motion.svg>
+        </motion.svg> */}
       </motion.div>
     </div>
   );
